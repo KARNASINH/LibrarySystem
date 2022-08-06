@@ -6,6 +6,7 @@ var logger = require("morgan");
 
 var mongoose = require("mongoose");
 var config = require("./config/globals");
+var hbs = require("hbs");
 
 var indexRouter = require("./routes/index");
 //var usersRouter = require("./routes/users");

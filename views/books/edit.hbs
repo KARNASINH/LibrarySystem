@@ -1,0 +1,42 @@
+<h1>
+  {{title}}
+</h1>
+<form method="POST">
+  {{! Input names have to match the name of the fields in the mongo schema object }}
+  {{! Mapping is not automatic, but it's best practices }}
+  <fieldset>
+    <label for="name" class="col-2">
+      Name:
+    </label>
+    <input name="name" id="name" required value="{{book.name}}" />
+  </fieldset>
+  <fieldset>
+    <label for="arrivedDate" class="col-2">
+      Due Date:
+    </label>
+    <input name="arrivedDate" id="arrivedDate" required type="date" value="{{toShortDate book.arrivedDate}}" />
+  </fieldset>
+  <fieldset>
+    <label for="genre" class="col-2">
+      Course:
+    </label>
+    {{! <input name="course" id="course" required /> }}
+    <select name="genre" id="genre">
+      {{#each genres}}
+        {{createOption this.name ../book.course}}
+      {{/each}}
+    </select>
+  </fieldset>
+  <fieldset>
+    <label for="status">Status: </label>
+    <select name="status" id="status">
+      {{createOption 'Available' book.status }}
+      {{createOption 'Issued' book.status}}
+    </select>
+  </fieldset>
+  {{! No need to specify Status since it has a default value }}
+  {{! Button needs to be inside <form> element to trigger POST }}
+  <button class="offset-3 btn btn-primary">
+    Save
+  </button>
+</form>
