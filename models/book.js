@@ -30,7 +30,7 @@ const booksSchemaDefinition = {
   },
   about: {
     type: String,
-    //required: true,
+    required: true,
   },
   status: {
     type: String,
