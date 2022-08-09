@@ -11,14 +11,32 @@
     <input name="name" id="name" required />
   </fieldset>
   <fieldset>
+    <label for="author" class="col-2">
+      Author:
+    </label>
+    <input name="author" id="author" required />
+  </fieldset>
+  <fieldset>
+    <label for="language" class="col-2">
+      Language:
+    </label>
+    <input name="language" id="language" required />
+  </fieldset>
+  <fieldset>
+    <label for="publishedDate" class="col-2">
+      Published Date:
+    </label>
+    <input name="publishedDate" id="publishedDate" required type="date" />
+  </fieldset>
+  <fieldset>
     <label for="arrivedDate" class="col-2">
-      Due Date:
+      Arrived Date:
     </label>
     <input name="arrivedDate" id="arrivedDate" required type="date" />
   </fieldset>
   <fieldset>
     <label for="genre" class="col-2">
-      Course:
+      Genre:
     </label>
     {{! <input name="course" id="course" required /> }}
     <select name="genre" id="genre">
@@ -26,6 +44,12 @@
         <option>{{this.name}}</option>
       {{/each}}
     </select>
+  </fieldset>
+  <fieldset>
+    <label for="About" class="col-2">
+      About:
+    </label>
+    <input name="About" id="About" required />
   </fieldset>
   {{! No need to specify Status since it has a default value }}
   {{! Button needs to be inside <form> element to trigger POST }}

@@ -4,25 +4,33 @@
 <a href="/books/add">Add a new book</a>
 {{/if}}
 {{!-- TODO: add a table to display projects from MongoDB --}}
-<table class="table table-striped table-hover">
+<table class="table table-info table-striped table-hover table-bordered text-center">
   <thead>
     <th>Name</th>
+    <th>Author</th>
+    <th>Languge</th>
+    <th>Published Date</th>
     <th>Arrived Date</th>
     <th>Genre</th>
+    <th>About</th>
     <th>Status</th>
-    <th></th>
+    <th class="table-danger"></th>
   </thead>
   <tbody>
   {{#each dataset}}
     <tr>
-      <td>{{this.name}}</Td>
+      <td >{{this.name}}</Td>
+      <td>{{this.author}}</Td>
+      <td>{{this.language}}</Td>
+      <td>{{toShortDate this.publishedDate}}</Td>
       <td>{{toShortDate this.arrivedDate}}</Td>
       <td>{{this.genre}}</Td>
+      <td class="col-3">{{this.about}}</Td>
       <td>{{this.status}}</Td>
-      <td>
+      <td class="table-danger">
         {{#if ../user}}
-        <a href="/projects/edit/{{this._id}}" class="btn btn-primary">Edit</a>
-        <a href="/projects/delete/{{this._id}}" class="btn btn-danger" onclick="confirmDeletion()">Delete</a>
+        <a href="/books/edit/{{this._id}}" class="btn btn-primary">Edit</a>
+        <a href="/books/delete/{{this._id}}" class="btn btn-danger" onclick="confirmDeletion()">Delete</a>
         {{/if}}
       </td>
     </tr>

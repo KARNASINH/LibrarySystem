@@ -8,4 +8,4 @@ const schemaDefinition = {
 };
 
 const genresSchema = new mongoose.Schema(schemaDefinition);
-module.exports = mongoose.model("Course", genresSchema);
+module.exports = mongoose.model("Genre", genresSchema);
