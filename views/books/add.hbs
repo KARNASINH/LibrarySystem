@@ -1,59 +1,71 @@
-<h1>
+<h1 class="margin32px">
   {{title}}
 </h1>
 <form method="POST">
   {{! Input names have to match the name of the fields in the mongo schema object }}
   {{! Mapping is not automatic, but it's best practices }}
   <fieldset>
-    <label for="name" class="col-2">
+    <label class="col-2" for="name" class="col-2">
       Name:
     </label>
-    <input name="name" id="name" required />
+    <input class="marginbottom32px" name="name" id="name" required />
   </fieldset>
   <fieldset>
-    <label for="author" class="col-2">
+    <label class="col-2" for="author" class="col-2">
       Author:
     </label>
-    <input name="author" id="author" required />
+    <input class="marginbottom32px" name="author" id="author" required />
   </fieldset>
   <fieldset>
-    <label for="language" class="col-2">
+    <label class="col-2" for="language" class="col-2">
       Language:
     </label>
-    <input name="language" id="language" required />
+    <input class="marginbottom32px" name="language" id="language" required />
   </fieldset>
   <fieldset>
-    <label for="publishedDate" class="col-2">
+    <label class="col-2" for="publishedDate" class="col-2">
       Published Date:
     </label>
-    <input name="publishedDate" id="publishedDate" required type="date" />
+    <input
+      class="marginbottom32px"
+      name="publishedDate"
+      id="publishedDate"
+      required
+      type="date"
+    />
   </fieldset>
   <fieldset>
-    <label for="arrivedDate" class="col-2">
+    <label class="col-2" for="arrivedDate" class="col-2">
       Arrived Date:
     </label>
-    <input name="arrivedDate" id="arrivedDate" required type="date" />
+    <input
+      class="marginbottom32px"
+      name="arrivedDate"
+      id="arrivedDate"
+      required
+      type="date"
+    />
   </fieldset>
   <fieldset>
-    <label for="genre" class="col-2">
+    <label class="col-2" for="genre" class="col-2">
       Genre:
     </label>
     {{! <input name="course" id="course" required /> }}
-    <select name="genre" id="genre">
+    <select class="marginbottom32px" name="genre" id="genre">
       {{#each genres}}
         <option>{{this.name}}</option>
       {{/each}}
     </select>
   </fieldset>
   <fieldset>
-    <label for="about" class="col-2">
+    <label class="col-2" for="about" class="col-2">
       About:
     </label>
-    <input name="about" id="about" required />
+    <input class="marginbottom32px" name="about" id="about" required />
   </fieldset>
   {{! No need to specify Status since it has a default value }}
   {{! Button needs to be inside <form> element to trigger POST }}
-  <button class="offset-3 btn btn-primary">
+  <button class="btn btn-primary col-4">
     Save
   </button>
 </form>

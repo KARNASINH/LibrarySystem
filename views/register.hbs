@@ -1,40 +1,73 @@
-<h1>{{title}}</h1>
+<div class="col-4 container margin32px">
+  <h1 class="text-center">{{title}}</h1>
+  <form method="post">
+    <!-- 2 column grid layout with text inputs for the first and last names -->
 
-<form method="post">
-  <fieldset class="form-group">
-    <label for="username" class="col-2 control-label">Username: *</label>
-    <input
-      name="username"
-      id="username"
-      required
-      type="email"
-      placeholder="email@email.com"
-    />
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="password" class="col-2 control-label">Password: *</label>
-    <input
-      name="password"
-      id="password"
-      type="password"
-      required
-      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-    />
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="confirm" class="col-2 control-label">Confirm: *</label>
-    <input
-      name="confirm"
-      id="confirm"
-      type="password"
-      required
-      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-    />
-  </fieldset>
-  <fieldset class="form-group">
-    <button class="btn btn-info offset-3">Register</button>
-    <hr />
-    Already have an account?
-    <a href="/login" title="Login">Login</a>
-  </fieldset>
-</form>
+    <!-- Email input -->
+    <div class="form-outline mb-4 margin32px">
+      <input
+        name="username"
+        id="username"
+        required
+        type="email"
+        placeholder="email@email.com"
+        class="form-control"
+      />
+      <label class="form-label" for="username">Email address</label>
+    </div>
+
+    <!-- Password input -->
+    <div class="form-outline mb-4 margin32px">
+      <input
+        name="password"
+        id="password"
+        type="password"
+        required
+        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+        class="form-control"
+      />
+      <label class="form-label" for="password">Password</label>
+    </div>
+
+    <!-- Password input -->
+    <div class="form-outline mb-4 margin32px">
+      <input
+        name="confirm"
+        id="confirm"
+        class="form-control"
+        type="password"
+        required
+        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+      />
+      <label for="confirm" class="form-label">Confirm Password</label>
+    </div>
+
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
+
+    <!-- Register buttons -->
+    <div class="text-center margin32px">
+      <p>or sign up with:</p>
+      <button type="button" class="btn btn-primary btn-floating mx-1">
+        <i class="fab fa-facebook-f"></i>
+      </button>
+
+      <button type="button" class="btn btn-primary btn-floating mx-1">
+        <i class="fab fa-google"></i>
+      </button>
+
+      <button type="button" class="btn btn-primary btn-floating mx-1">
+        <i class="fab fa-twitter"></i>
+      </button>
+
+      <button type="button" class="btn btn-primary btn-floating mx-1">
+        <i class="fab fa-github"></i>
+      </button>
+    </div>
+
+    <div class="text-center form-outline mb-4 margin32px">
+      Already have an account?
+      <a href="/login" title="Login">Login</a>
+    </div>
+  </form>
+</div>

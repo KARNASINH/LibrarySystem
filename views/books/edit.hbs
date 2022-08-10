@@ -1,4 +1,4 @@
-<h1>
+<h1 class="margin32px">
   {{title}}
 </h1>
 <form method="POST">
@@ -8,38 +8,38 @@
     <label for="name" class="col-2">
       Name:
     </label>
-    <input name="name" id="name" required value="{{book.name}}" />
+    <input class="marginbottom32px" name="name" id="name" required value="{{book.name}}" />
   </fieldset>
   <fieldset>
     <label for="author" class="col-2">
       Author:
     </label>
-    <input name="author" id="author" required value="{{book.author}}" />
+    <input class="marginbottom32px" name="author" id="author" required value="{{book.author}}" />
   </fieldset>
   <fieldset>
     <label for="language" class="col-2">
       Language:
     </label>
-    <input name="language" id="language" required value="{{book.language}}" />
+    <input class="marginbottom32px" name="language" id="language" required value="{{book.language}}" />
   </fieldset>
   <fieldset>
     <label for="publishedDate" class="col-2">
       Published Date:
     </label>
-    <input name="publishedDate" id="publishedDate" required type="date" value="{{toShortDate book.publishedDate}}" />
+    <input class="marginbottom32px" name="publishedDate" id="publishedDate" required type="date" value="{{toShortDate book.publishedDate}}" />
   </fieldset>
   <fieldset>
     <label for="arrivedDate" class="col-2">
       Arrived Date:
     </label>
-    <input name="arrivedDate" id="arrivedDate" required type="date" value="{{toShortDate book.arrivedDate}}" />
+    <input class="marginbottom32px" name="arrivedDate" id="arrivedDate" required type="date" value="{{toShortDate book.arrivedDate}}" />
   </fieldset>
   <fieldset>
     <label for="genre" class="col-2">
       Genre:
     </label>
     {{! <input name="course" id="course" required /> }}
-    <select name="genre" id="genre">
+    <select class="marginbottom32px" name="genre" id="genre">
       {{#each genres}}
         {{createOption this.name ../book.genre}}
       {{/each}}
@@ -49,18 +49,18 @@
     <label for="about" class="col-2">
       About:
     </label>
-    <input name="about" id="about" required value="{{book.about}}" />
+    <input class="marginbottom32px" name="about" id="about" required value="{{book.about}}" />
   </fieldset>
   <fieldset>
-    <label for="status">Status: </label>
-    <select name="status" id="status">
+    <label for="status" class="col-2">Status: </label>
+    <select class="marginbottom32px" name="status" id="status">
       {{createOption 'Available' book.status }}
       {{createOption 'Issued' book.status}}
     </select>
   </fieldset>
   {{! No need to specify Status since it has a default value }}
   {{! Button needs to be inside <form> element to trigger POST }}
-  <button class="offset-3 btn btn-primary">
-    Save
+  <button class="btn btn-primary col-4">
+  Save
   </button>
 </form>

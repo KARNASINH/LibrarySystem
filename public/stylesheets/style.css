@@ -1,4 +1,5 @@
 @import url('../node_modules/font-awesome/css/font-awesome.min.css');
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -36,5 +37,44 @@ a {
 nav{
   list-style:none ;
 }
+
+.margin32px
+{
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.marginbottom16px
+{
+  margin-bottom: 16px;
+}
+
+.marginbottom32px
+{
+  margin-bottom: 32px;
+}
+
+.table-sortable th {
+  cursor: pointer;
+}
+
+.table-sortable .th-sort-asc::after {
+  content: "\25b4";
+}
+
+.table-sortable .th-sort-desc::after {
+  content: "\25be";
+}
+
+.table-sortable .th-sort-asc::after,
+.table-sortable .th-sort-desc::after {
+  margin-left: 5px;
+}
+
+.table-sortable .th-sort-asc,
+.table-sortable .th-sort-desc {
+  background: rgba(0, 0, 0, 0.1);
+}
+
 
 
