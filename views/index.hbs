@@ -1,2 +1,61 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<p class="margin32px"></p>
+<!-- Main section contains middle part for the page -->
+<main>
+  <!-- 1st section,  contains hero section-->
+  <section class="hero">
+    <!-- Container class to inclide whole webpage in defined width -->
+    <div class="container">
+      <!-- Tagl ine -->
+      <h1>Knowledge-City : Where mind grows.</h1>
+      <p>More than thousands of poeple nourished their mind in our library, Can you be the next?</p>
+    </div>
+  </section>
+
+  <!-- 2nd section contains middle part of the main area -->
+  <section class="container about-author">
+    <div class="author-text">
+      <h3>Groucho Marx</h3>
+      <p>"Outside of a dog, a book is man's best friend."</p>
+      <p>The Knowledge-City Public Library (KC) is the largest bilingual (English/French) public library system in Ontario. The KC extends public access to information and services through the library’s 5 branches, physical and virtual (knowledgecitylibary.ca), as well as two mobile libraries and a vending machine-style lending library service. </p>
+      <p>Serving close to one million Ontario residents, KC’s mission is to inspire learning, spark curiosity, and connect people.</p>
+    </div>
+    <div class="author-image">
+        {{!-- Copied image from https://unsplash.com/photos/2JIvboGLeho AUthor:Susan Q Yin --}}
+      <img src="./images/library.jpg" alt="Author image" />
+    </div>
+  </section>
+
+  <!-- 3rd section, contains bottom part of the main area -->
+  <section class="container services">
+    <!-- All three div contain about company features -->
+    <div class="service service-1">
+      <div class="service-img">
+        {{!-- Copied image from https://unsplash.com/photos/2JIvboGLeho AUthor:CURVD® --}}
+        <img src="./images/ebook.jpg" alt="Service one" />
+      </div>
+      <h4><b><u>eBooks and Audiobooks</b></u></h4>
+      <p>A Forum on the Future of Leadership brought together leaders from
+        government, business, academia and science, along with an audience of
+        up-and-coming leaders from across the globe, to deepen our collective
+        understanding of the keys to success on a smarter planet.</p>
+    </div>
+
+    <div class="service service-2">
+      <div class="service-img">
+        {{!-- Copied image from https://unsplash.com/photos/2JIvboGLeho AUthor:Charisse Kenion --}}
+        <img src="./images/magazine.jpg" alt="Service one" />
+      </div>
+      <h4><b><u>Magazines</b></u></h4>
+      <p>As part of our process, we carefully select and meticulously care for
+        each typewriter that passes through our centers to ensure that the
+        experience for each customer is one they will remember.</p>
+    </div>
+    <div class="service service-3">
+      <div class="service-img">
+        {{!-- Copied image from https://unsplash.com/photos/2JIvboGLeho AUthor:Tech Daily --}}
+        <img src="./images/moviestv.jpg" alt="Service one" />
+      </div>
+      <h4><b><u>Movies and TV</b></u></h4>
+      <p>IBM research : "Inventing What’s Next"</p>
+    </div>
+  </section>
