@@ -10,6 +10,7 @@ var hbs = require("hbs");
 
 //imported passport
 var passport = require("passport");
+var githubStrategy = require("passport-github2").Strategy;
 //imported express-session (required for passport service)
 var session = require("express-session");
 
@@ -20,7 +21,7 @@ var genresRouter = require("./routes/genres");
 var contactRouter = require("./routes/contact");
 var aboutRouter = require("./routes/about");
 
-var user = require("./models/user");
+var User = require("./models/user");
 
 var app = express();
 
@@ -46,10 +47,38 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //configuring local strategy
-//this user.createStrategy() is not mongoose method, it is coming from the pml plugin
-passport.use(user.createStrategy());
-passport.serializeUser(user.serializeUser());
-passport.deserializeUser(user.deserializeUser());
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+// configure github strategy
+passport.use(
+  new githubStrategy(
+    {
+      clientID: config.github.clientId,
+      clientSecret: config.github.clientSecret,
+      callbackURL: config.github.callbackUrl,
+    },
+    async (accessToken, refreshToken, profile, done) => {
+      // is this a new user in my db?
+      const user = await User.findOne({ oauthId: profile.id });
+      if (user) {
+        // user exists in db, so just continue the process
+        return done(null, user);
+      } else {
+        // this is the first time user logs in with github
+        const newUser = new User({
+          username: profile.username,
+          oauthId: profile.id,
+          oauthProvider: "GitHub",
+          created: Date.now(),
+        });
+        const savedUser = await newUser.save();
+        return done(null, savedUser);
+      }
+    }
+  )
+);
 
 app.use("/", indexRouter);
 //app.use("/users", usersRouter);

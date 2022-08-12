@@ -53,10 +53,30 @@
       </div>
     </div>
 
-    <!-- Submit button -->
-    <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+    <div>
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+    </div>
 
+    {{!-- <div>
+      {{! GithubLogin Button }}
+      {{! <a class="btn btn-infor" href="/github">Login with Github</a> }}
+      <a class="btn btn-primary btn-block mb-4" href="/github">Login with Github</a>
+    </div> --}}
     <!-- Register buttons -->
+
+    <div class="text-center margin32px">
+      <p>or sign in with:</p>
+
+      {{! <button type="button" class="btn btn-primary btn-floating mx-1">
+        <i class="fab fa-google"></i>
+      </button> }}
+
+      <button type="button" class="btn btn-floating mx-1">
+        {{! <i class="fab fa-github"></i> }}
+        <a class="fab fa-github" href="/github">Github</a>
+      </button>
+    </div>
     <div class="text-center">
       <p>Not a member? <a href="/register" title="Register">Register</a></p>
     </div>

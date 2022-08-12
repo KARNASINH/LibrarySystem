@@ -7,6 +7,9 @@ const plm = require("passport-local-mongoose");
 const schemaDefination = {
   userName: { type: String },
   password: { type: String },
+  outhId: { type: String },
+  outhProvider: { type: String },
+  created: { type: String },
 };
 
 const mongooseSchema = new mongoose.Schema(schemaDefination);
