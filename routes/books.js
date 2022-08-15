@@ -68,6 +68,22 @@ router.post("/add", isLoggedIn, (req, res, next) => {
   );
 });
 
+/*
+router.get("/search/:", (req, res, next) => {
+  Book.find({ name: { $regex: "Is" } }, (err, books) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("books/index", {
+        title: "Available Books",
+        dataset: books,
+        user: req.user,
+      });
+    }
+  });
+});
+*/
+
 // GET handler for /Books/Delete/_id
 router.get("/delete/:_id", isLoggedIn, (req, res, next) => {
   Book.remove(
