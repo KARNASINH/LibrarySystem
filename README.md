@@ -16,6 +16,7 @@ This app can be used to manage books for the Knowledge-City Library.
 - [x] Express.js
 - [x] MongoDB
 - [x] HTML
+- [x] HBS template
 - [x] CSS
 - [x] Different npm packages
 
