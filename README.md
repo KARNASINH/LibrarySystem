@@ -24,7 +24,7 @@ This app can be used to manage books for the Knowledge-City Library.
  - Used additional npm package >> "font-awesome": "^4.7.0"
  - User can sort table by clicking on the table's column heading
  - Used github authentication
- - Tried to add searching functionality on the table but short with the time because of full-time job and full-time study
+ - Tried to add searching functionality on the table but short with the time because of full-time job and full-time study (trie)
 
 ## Citation
 1. For CSS, Images, Javascript
