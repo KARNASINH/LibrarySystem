@@ -12,6 +12,7 @@
 {{!-- This table is sortable --}}
 <table class="table table-info table-striped table-hover table-sortable">
   <thead class="text-center">
+    {{!-- These are the heading  --}}
     <th class="col-2">Name</th>
     <th >Author</th>
     <th>Languge</th>
@@ -36,6 +37,7 @@
       <td>{{this.status}}</Td>
       <td>
         {{#if ../user}}
+        {{!-- It will populate edit and delete button only if the user is logged in. --}}
         <a href="/books/edit/{{this._id}}" class="btn btn-primary">Edit</a>
         <a href="/books/delete/{{this._id}}" class="btn btn-danger" onclick="confirmDeletion()">Delete</a>
         {{/if}}

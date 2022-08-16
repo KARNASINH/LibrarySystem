@@ -16,7 +16,7 @@ var config = require("./config/globals");
 //Imported passpoert and otehr authentication packages
 var passport = require("passport");
 var githubStrategy = require("passport-github2").Strategy;
-//imported express-session (required for passport service)
+//Importing express session.
 var session = require("express-session");
 
 //Imported different routes modules
@@ -59,7 +59,7 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// configure github strategy
+//Configuring strategy for the github authentication.
 passport.use(
   new githubStrategy(
     {
@@ -68,13 +68,11 @@ passport.use(
       callbackURL: config.github.callbackUrl,
     },
     async (accessToken, refreshToken, profile, done) => {
-      // is this a new user in my db?
+      //Checking the user is in the database or not.
       const user = await User.findOne({ oauthId: profile.id });
       if (user) {
-        // user exists in db, so just continue the process
         return done(null, user);
       } else {
-        // this is the first time user logs in with github
         const newUser = new User({
           username: profile.username,
           oauthId: profile.id,
@@ -95,10 +93,10 @@ app.use("/genres", genresRouter);
 app.use("/contact", contactRouter);
 app.use("/about", aboutRouter);
 
-// Configure mongoose after route declarations
+//Configure mongoose after route declarations
 mongoose
   .connect(
-    config.db, //Connection string config module
+    config.db, //Connection string getting from the config module
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -119,7 +117,7 @@ hbs.registerHelper("createOption", (currentValue, selectedValue) => {
   }
   //Generate html code for the option element with the selected property
   var option = "<option " + selectedProperty + ">" + currentValue + "</option>";
-  //Creating option tag <option>VALUE</option>
+  //Creating option tag
   return new hbs.SafeString(option);
 });
 

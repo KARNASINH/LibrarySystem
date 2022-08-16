@@ -19,17 +19,16 @@ router.get("/", function (req, res, next) {
   res.render("index", { title: "Express", user: req.user });
 });
 
-//GET handler for /login
+//GET handler navigate to the login page
 router.get("/login", (req, res, next) => {
-  //Extract messages from session or create an empty list if these don't exist
   let messages = req.session.messages || [];
-  //Clear messages
+  //Removing the message from the session.
   req.session.messages = [];
-  //Pass messages to the view
+  //Pass messages view when the view is rendered
   res.render("login", { title: "Login to your Account", messages: messages });
 });
 
-//POST handler for /login
+//POST handler to pass user data for the authentication
 //Use passport out of the box middleware to authenticate user.
 router.post(
   "/login",
@@ -40,27 +39,28 @@ router.post(
   })
 );
 
-// GET handler for /register
+//GET handler navigate to the register page
 router.get("/register", (req, res, next) => {
   res.render("register", { title: "Sign up for an Account" });
 });
 
-// POST handler for /register
+//POST handler to pass the registration data into database
 router.post("/register", (req, res, next) => {
-  // Create a new user based on the info sent
+  //New user created based on the passed information
   User.register(
     new User({
       username: req.body.username,
-    }), //New user object with info from the request
-    req.body.password, //Password (so that it can be encrypted)
+    }),
+    //Getting password to encrypt
+    req.body.password,
     (err, newUser) => {
-      //Callback function to handle success/fail
+      //Calling Callback function to handle request, weaher it's success or failed
       if (err) {
-        //If there's an error we'll send the user back to register
+        //If any error found then it will redirect the user to the register page
         console.log(err);
         res.redirect("/register");
       } else {
-        //Else log the user in and redirect to /books
+        //If registration is successful then redirect to the book list view
         req.login(newUser, (err) => {
           res.redirect("/books");
         });
@@ -76,19 +76,22 @@ router.get("/logout", (req, res, next) => {
   });
 });
 
-//Get handler for "/github"
+//Get handler for the github
 router.get(
   "/github",
   passport.authenticate("github", { scope: ["user.email"] })
 );
 
-//Get handler for /github/callback
+//Get handler for the callback of the github
 router.get(
   "/github/callback",
-  passport.authenticate("github", { failureRedirect: "/login" }), //If user failed to authenticate then it will redirect to the login page.
+  //If user failed to authenticate then it will redirect to the login page.
+  passport.authenticate("github", { failureRedirect: "/login" }),
   (req, res, next) => {
-    res.redirect("/books"); //If user authenticate successfully then takes user on the
+    //If user authenticate successfully then takes user on the books viwe
+    res.redirect("/books");
   }
 );
-//Exporting router object.
+
+//Exporting router object
 module.exports = router;

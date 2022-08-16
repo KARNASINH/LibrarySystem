@@ -18,7 +18,7 @@ function isLoggedIn(req, res, next) {
   }
 }
 
-//GET handlers for /Genres/
+//GET handlers navigate to the genre page
 router.get("/", isLoggedIn, (req, res, next) => {
   Genre.find((err, genres) => {
     if (err) {
@@ -33,12 +33,12 @@ router.get("/", isLoggedIn, (req, res, next) => {
   }).sort({ name: 1 });
 });
 
-//GET handler for /Genres/Add
+//GET handler navigate to add genre page
 router.get("/add", isLoggedIn, (req, res, next) => {
   res.render("genres/add", { title: "Add a new Genre", user: req.user });
 });
 
-//POST handler for /Genres/Add
+//POST handler to pass entered data into database
 router.post("/add", isLoggedIn, (req, res, next) => {
   Genre.create(
     {

@@ -23,7 +23,7 @@ function isLoggedIn(req, res, next) {
 
 //Configuring different routes.
 
-//Get router which routes to book index page.
+//Get router navigating to book index page.
 router.get("/", (req, res, next) => {
   Book.find((err, books) => {
     if (err) {
@@ -38,8 +38,7 @@ router.get("/", (req, res, next) => {
   });
 });
 
-//Adding a book.
-// GET handler to get add book page
+//GET handler navigate to the add book page
 router.get("/add", isLoggedIn, (req, res, next) => {
   Genre.find((err, genres) => {
     if (err) {
@@ -54,7 +53,7 @@ router.get("/add", isLoggedIn, (req, res, next) => {
   }).sort({ name: 1 });
 });
 
-//Post handler to pass all book data into database.
+//Post handler to pass all book's data into database.
 router.post("/add", isLoggedIn, (req, res, next) => {
   Book.create(
     {
@@ -77,7 +76,7 @@ router.post("/add", isLoggedIn, (req, res, next) => {
   );
 });
 
-// GET handler for /Books/Delete/_id
+//GET handler to delete the book entry
 router.get("/delete/:_id", isLoggedIn, (req, res, next) => {
   Book.remove(
     {
@@ -93,7 +92,7 @@ router.get("/delete/:_id", isLoggedIn, (req, res, next) => {
   );
 });
 
-// GET handler for /Books/Edit/_id
+//GET handler for navigate to the edit book detail page
 router.get("/edit/:_id", isLoggedIn, (req, res, next) => {
   Book.findById(req.params._id, (err, book) => {
     if (err) {
@@ -115,7 +114,7 @@ router.get("/edit/:_id", isLoggedIn, (req, res, next) => {
   });
 });
 
-// POST handler for /Books/Edit/:_id
+//POST handler once user enter all the new data for the book
 router.post("/edit/:_id", isLoggedIn, (req, res, next) => {
   Book.findOneAndUpdate(
     {
