@@ -1,10 +1,15 @@
+{{! Auhor: Karnasinh Gohil }}
+
+{{! This is heading tage taking title variable value in it }}
 <h1 class="margin32px">{{title}}</h1>
-{{!-- TODO: add navigation to add a new project --}}
+
+{{!-- Only populate option if user is already loggedIn --}}
 {{#if user}}
 <a href="/books/add">Add a new book</a>
 <p></p>
 {{/if}}
-{{!-- TODO: add a table to display projects from MongoDB --}}
+{{!-- Displying book table --}}
+{{!-- This table is sortable --}}
 <table class="table table-info table-striped table-hover table-sortable">
   <thead class="text-center">
     <th class="col-2">Name</th>
@@ -18,6 +23,7 @@
     <th></th>
   </thead>
   <tbody>
+    {{!-- Iterating over the received data to add rows based on data available --}}
   {{#each dataset}}
     <tr>
       <td class="col-2">{{this.name}}</Td>

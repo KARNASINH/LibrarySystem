@@ -1,46 +1,59 @@
+/*
+ * Auhor: Karnasinh Gohil
+ */
+ 
+/* Imported font-awesome library from font-awesome api. */
 @import url('../node_modules/font-awesome/css/font-awesome.min.css');
 /* Imported font library from the google font API */
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&family=Poppins:ital,wght@0,400;0,500;0,600;1,300&display=swap');
 
-
+/* Styling for teh entire body tag. */
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+/* Stylijng for the anchor tag. */
 a {
   color: #00B7FF;
 }
 
+/* This style set margin zero to all tag where it is defined. */
 .teamName
 {
   margin: 0;
 }
 
+/* Setting margin 16px */
 .teamContact
 {
   margin-bottom: 16px;
 }
 
+/* Setting up top margin. */
 .contactMainHeading
 {
   margin-top: 50px;
 }
 
+/* Setting up margin zero. */
 .margin
 {
   margin: 0;
 }
 
+/* Setting up padding 0 */
 .padding
 {
   padding: 0;
 }
 
+/* Added style to nav bar */
 nav{
   list-style:none ;
 }
 
+/* Setting up top-bottom margnin 32px */
 .margin32px
 {
   margin-top: 32px;
@@ -57,6 +70,8 @@ nav{
   margin-bottom: 32px;
 }
 
+
+/* THis all style are taken from taken from https://codepen.io/dcode-software/pen/zYGOrzK */
 .table-sortable th {
   cursor: pointer;
 }
@@ -78,11 +93,10 @@ nav{
 .table-sortable .th-sort-desc {
   background: rgba(0, 0, 0, 0.1);
 }
-
-
 /* =============================== */
 
 
+/* There all style are taken from my previous HTML-CSS project. */
 
 /* To remove line from the bottom */
 a {

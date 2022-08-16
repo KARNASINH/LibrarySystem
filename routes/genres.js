@@ -1,7 +1,15 @@
+/*
+ * Auhor: Karnasinh Gohil
+ */
+
+//Imported express module.
 const express = require("express");
+//Imported router object.
 const router = express.Router();
+//Imported genre module.
 const Genre = require("../models/genre");
 
+//This function check weather user is logged in or not.
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
@@ -10,7 +18,7 @@ function isLoggedIn(req, res, next) {
   }
 }
 
-// GET handlers for /Genres/
+//GET handlers for /Genres/
 router.get("/", isLoggedIn, (req, res, next) => {
   Genre.find((err, genres) => {
     if (err) {
@@ -25,12 +33,12 @@ router.get("/", isLoggedIn, (req, res, next) => {
   }).sort({ name: 1 });
 });
 
-// GET handler for /Genres/Add
+//GET handler for /Genres/Add
 router.get("/add", isLoggedIn, (req, res, next) => {
   res.render("genres/add", { title: "Add a new Genre", user: req.user });
 });
 
-// POST handler for /Genres/Add
+//POST handler for /Genres/Add
 router.post("/add", isLoggedIn, (req, res, next) => {
   Genre.create(
     {
@@ -46,4 +54,5 @@ router.post("/add", isLoggedIn, (req, res, next) => {
   );
 });
 
+//Exported router object.
 module.exports = router;

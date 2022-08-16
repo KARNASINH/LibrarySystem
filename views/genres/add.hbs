@@ -1,7 +1,13 @@
-<h1>{{title}}</h1>
+{{! Auhor: Karnasinh Gohil }}
+
+{{! This is heading tage taking title variable value in it }}
+<h1 class="margin32px">{{title}}</h1>
+
+{{! This is genre adding form }}
 <form method="POST">
-    <fieldset>Genre name: </label>
-        <input name="name" id="name"/>
-    </fieldset>
-    <button class="offset-3 btn btn-primary">Save</button>
+  <fieldset class="margin32px">Genre name:
+    <input name="name" id="name" />
+  </fieldset>
+  {{! This is form submission button, to pass data into database }}
+  <button class="offset-1 btn btn-primary col-1">Save</button>
 </form>

@@ -1,3 +1,8 @@
+/*
+ * Auhor: Karnasinh Gohil
+ */
+
+//This function is reponsible to handle delete book entry.
 function confirmDeletion() {
   if (confirm("Are you sure you want to delete this project?")) return true;
   else {
@@ -7,12 +12,15 @@ function confirmDeletion() {
   }
 }
 
+//This function is reponsibl to handle sorting of book table.
+//To sort any table you need to assign class="table-sortable" in the table tag.
+//This code has been taken from https://codepen.io/dcode-software/pen/zYGOrzK
 function sortTableByColumn(table, column, asc = true) {
   const dirModifier = asc ? 1 : -1;
   const tBody = table.tBodies[0];
   const rows = Array.from(tBody.querySelectorAll("tr"));
 
-  // Sort each row
+  //Sorting each row.
   const sortedRows = rows.sort((a, b) => {
     const aColText = a
       .querySelector(`td:nth-child(${column + 1})`)
@@ -24,15 +32,15 @@ function sortTableByColumn(table, column, asc = true) {
     return aColText > bColText ? 1 * dirModifier : -1 * dirModifier;
   });
 
-  // Remove all existing TRs from the table
+  //Removing all existing rows from the table.
   while (tBody.firstChild) {
     tBody.removeChild(tBody.firstChild);
   }
 
-  // Re-add the newly sorted rows
+  //Again adding sorted columns in the table.
   tBody.append(...sortedRows);
 
-  // Remember how the column is currently sorted
+  //Remembering how the column are sorted currently.
   table
     .querySelectorAll("th")
     .forEach((th) => th.classList.remove("th-sort-asc", "th-sort-desc"));
@@ -44,6 +52,7 @@ function sortTableByColumn(table, column, asc = true) {
     .classList.toggle("th-sort-desc", !asc);
 }
 
+//Main entry point of the program to sort the column.
 document.querySelectorAll(".table-sortable th").forEach((headerCell) => {
   headerCell.addEventListener("click", () => {
     const tableElement = headerCell.parentElement.parentElement.parentElement;
@@ -56,25 +65,3 @@ document.querySelectorAll(".table-sortable th").forEach((headerCell) => {
     sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
   });
 });
-
-//Javascript file to take global header and footer section on each page
-
-//Fetching data from header.html file.
-fetch("./header.html")
-  .then((response) => {
-    return response.text();
-  })
-  //Data return to the header tag of html file.
-  .then((data) => {
-    document.querySelector("header").innerHTML = data;
-  });
-
-fetch("./footer.html")
-  .then((response) => {
-    return response.text();
-  })
-
-  //Data return to the footer tag of html file.
-  .then((data) => {
-    document.querySelector("footer").innerHTML = data;
-  });

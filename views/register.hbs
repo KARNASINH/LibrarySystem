@@ -1,8 +1,11 @@
+{{! Auhor: Karnasinh Gohil }}
+{{! Boiler plate code has taken from this and then modified according to my requirement }}
+{{! Boiler plte code link : https://mdbootstrap.com/docs/standard/forms/overview/ }}
 <div class="col-4 container margin32px">
-  <h1 class="text-center">{{title}}</h1>
+  {{! This is heading tag taking title variable value in it }}
+  <h1 class="text-center margin32px">{{title}}</h1>
   <form method="post">
     <!-- 2 column grid layout with text inputs for the first and last names -->
-
     <!-- Email input -->
     <div class="form-outline mb-4 margin32px">
       <input
@@ -48,19 +51,13 @@
     <!-- Register buttons -->
     <div class="text-center margin32px">
       <p>or sign up with:</p>
-
-      {{! <button type="button" class="btn btn-primary btn-floating mx-1">
-        <i class="fab fa-google"></i>
-      </button> }}
-
-      <button type="button" class="btn btn-floating mx-1">
-        {{! <i class="fab fa-github"></i> }}
-        <a class="fab fa-github" href="/github">Github</a>
-      </button>
+      {{! Githug register link }}
+      <a class="fab fa-github" href="/github">Github</a>
     </div>
 
     <div class="text-center form-outline mb-4 margin32px">
       Already have an account?
+      {{! login page link }}
       <a href="/login" title="Login">Login</a>
     </div>
   </form>

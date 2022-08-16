@@ -1,11 +1,18 @@
-// import express
+/*
+ * Auhor: Karnasinh Gohil
+ */
+
+//Imported express module.
 const express = require("express");
-// create router object
+
+//Created router object.
 const router = express.Router();
-// import mongoose model
+
+//Imported different modules.
 const Book = require("../models/book");
 const Genre = require("../models/genre");
 
+//This function check weather user has been logged in or not.
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
@@ -14,8 +21,9 @@ function isLoggedIn(req, res, next) {
   }
 }
 
-// configure routes
-// GET handler /Books/
+//Configuring different routes.
+
+//Get router which routes to book index page.
 router.get("/", (req, res, next) => {
   Book.find((err, books) => {
     if (err) {
@@ -30,8 +38,8 @@ router.get("/", (req, res, next) => {
   });
 });
 
-// Adding a book
-// GET handler /Books/Add
+//Adding a book.
+// GET handler to get add book page
 router.get("/add", isLoggedIn, (req, res, next) => {
   Genre.find((err, genres) => {
     if (err) {
@@ -46,11 +54,12 @@ router.get("/add", isLoggedIn, (req, res, next) => {
   }).sort({ name: 1 });
 });
 
-// POST handler /Books/Add
+//Post handler to pass all book data into database.
 router.post("/add", isLoggedIn, (req, res, next) => {
   Book.create(
     {
-      name: req.body.name, // extract values from form (body) by input id
+      //Parsing different data into database
+      name: req.body.name,
       author: req.body.author,
       language: req.body.language,
       arrivedDate: req.body.arrivedDate,
@@ -67,22 +76,6 @@ router.post("/add", isLoggedIn, (req, res, next) => {
     }
   );
 });
-
-/*
-router.get("/search/:", (req, res, next) => {
-  Book.find({ name: { $regex: "Is" } }, (err, books) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.render("books/index", {
-        title: "Available Books",
-        dataset: books,
-        user: req.user,
-      });
-    }
-  });
-});
-*/
 
 // GET handler for /Books/Delete/_id
 router.get("/delete/:_id", isLoggedIn, (req, res, next) => {
@@ -148,5 +141,5 @@ router.post("/edit/:_id", isLoggedIn, (req, res, next) => {
   );
 });
 
-// export router object
+//Exported router object.
 module.exports = router;

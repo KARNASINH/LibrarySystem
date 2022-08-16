@@ -1,28 +1,29 @@
-// naming convention > models are singular, routers are plural
-// model is an object that represents my data and interacts with the db
+/**
+ * Auhor: Karnasinh Gohil
+ */
 
-// Import mongoose
+//Imported mongoose module.
 const mongoose = require("mongoose");
-// Create schema definition using mapping notation
-// Define what you want your data to look like
+
+//Created schema definition using mapping notation.
 const booksSchemaDefinition = {
   name: {
-    type: String, // data type string
-    required: true,
+    type: String, //String datatype.
+    required: true, //It says, this data is must.
   },
   author: {
-    type: String, // data type string
+    type: String,
     required: true,
   },
   language: {
-    type: String, // data type string
+    type: String,
     required: true,
   },
   publishedDate: {
-    type: Date, // data type date
+    type: Date, //Date datatype.
   },
   arrivedDate: {
-    type: Date, // data type date
+    type: Date,
   },
   genre: {
     type: String,
@@ -34,10 +35,12 @@ const booksSchemaDefinition = {
   },
   status: {
     type: String,
-    default: "Available", // all projects added to my db will be in TO DO
+    default: "Available", //Default value for this field is "Available".
   },
 };
-// Create a mongoose schema using the definition object
+
+//Creating a mongoose schema using the definition object.
 const booksSchema = new mongoose.Schema(booksSchemaDefinition);
-// Create a mongoose model using the mongoose schema
+
+//Creating a mongoose model using the mongoose schema and exporting it.
 module.exports = mongoose.model("Book", booksSchema);

@@ -1,29 +1,37 @@
+{{! Auhor: Karnasinh Gohil }}
+
+{{! This is heading tage taking title variable value in it }}
 <h1 class="margin32px">
   {{title}}
 </h1>
+
+{{! This is new book adding form }}
 <form method="POST">
-  {{! Input names have to match the name of the fields in the mongo schema object }}
-  {{! Mapping is not automatic, but it's best practices }}
+
+  {{! This is name field }}
   <fieldset>
-    <label class="col-2" for="name" class="col-2">
+    <label class="col-2" for="name">
       Name:
     </label>
     <input class="marginbottom32px" name="name" id="name" required />
   </fieldset>
+  {{! This is author field }}
   <fieldset>
-    <label class="col-2" for="author" class="col-2">
+    <label class="col-2" for="author">
       Author:
     </label>
     <input class="marginbottom32px" name="author" id="author" required />
   </fieldset>
+  {{! This is language field }}
   <fieldset>
-    <label class="col-2" for="language" class="col-2">
+    <label class="col-2" for="language">
       Language:
     </label>
     <input class="marginbottom32px" name="language" id="language" required />
   </fieldset>
+  {{! This is book publish field }}
   <fieldset>
-    <label class="col-2" for="publishedDate" class="col-2">
+    <label class="col-2" for="publishedDate">
       Published Date:
     </label>
     <input
@@ -34,8 +42,9 @@
       type="date"
     />
   </fieldset>
+  {{! This is book arrived at library date field }}
   <fieldset>
-    <label class="col-2" for="arrivedDate" class="col-2">
+    <label class="col-2" for="arrivedDate">
       Arrived Date:
     </label>
     <input
@@ -46,26 +55,28 @@
       type="date"
     />
   </fieldset>
+  {{! This is genre dropdown menu selection field }}
   <fieldset>
-    <label class="col-2" for="genre" class="col-2">
+    <label class="col-2" for="genre">
       Genre:
     </label>
-    {{! <input name="course" id="course" required /> }}
+    {{! This will generate drop down menu field for genre }}
     <select class="marginbottom32px" name="genre" id="genre">
       {{#each genres}}
         <option>{{this.name}}</option>
       {{/each}}
     </select>
   </fieldset>
+  {{! This is about field }}
   <fieldset>
-    <label class="col-2" for="about" class="col-2">
+    <label class="col-2" for="about">
       About:
     </label>
     <input class="marginbottom32px" name="about" id="about" required />
   </fieldset>
-  {{! No need to specify Status since it has a default value }}
-  {{! Button needs to be inside <form> element to trigger POST }}
+  {{! Data will be passed to database as user click on this }}
   <button class="btn btn-primary col-4">
     Save
   </button>
 </form>
+{{! This is end of form }}

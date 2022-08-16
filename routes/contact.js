@@ -1,10 +1,17 @@
+/*
+ * Auhor: Karnasinh Gohil
+ */
+
+//Imported express module.
 const express = require("express");
-// create router object
+
+//Created router object.
 const router = express.Router();
 
+//Get handler to render about page.
 router.get("/", (req, res, next) => {
   res.render("contact", { title: "Contact the library" });
 });
 
-// export router object
+//Exported router object.
 module.exports = router;

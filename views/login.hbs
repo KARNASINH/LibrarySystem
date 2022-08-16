@@ -1,5 +1,9 @@
+{{! Auhor: Karnasinh Gohil }}
+{{! Boiler plate code has taken from this and then modified according to my requirement }}
+{{! Boiler plte code link : https://mdbootstrap.com/docs/standard/forms/overview/ }}
 <div class="col-4 container">
-  <h1 class="text-center">{{title}}</h1>
+  {{! This is heading tage taking title variable value in it }}
+  <h1 class="text-center margin32px">{{title}}</h1>
 
   {{! Show messages accordingly }}
   {{#if messages}}
@@ -57,27 +61,13 @@
       <!-- Submit button -->
       <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
     </div>
-
-    {{!-- <div>
-      {{! GithubLogin Button }}
-      {{! <a class="btn btn-infor" href="/github">Login with Github</a> }}
-      <a class="btn btn-primary btn-block mb-4" href="/github">Login with Github</a>
-    </div> --}}
-    <!-- Register buttons -->
-
     <div class="text-center margin32px">
       <p>or sign in with:</p>
-
-      {{! <button type="button" class="btn btn-primary btn-floating mx-1">
-        <i class="fab fa-google"></i>
-      </button> }}
-
-      <button type="button" class="btn btn-floating mx-1">
-        {{! <i class="fab fa-github"></i> }}
-        <a class="fab fa-github" href="/github">Github</a>
-      </button>
+      {{! github register link }}
+      <a class="fab fa-github" href="/github">Github</a>
     </div>
     <div class="text-center">
+      {{! register page link }}
       <p>Not a member? <a href="/register" title="Register">Register</a></p>
     </div>
   </form>
