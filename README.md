@@ -3,7 +3,7 @@ This app can be used to manage books for the Knowledge-City Library.
 
 ## Project features
 1. You can see list of book availabe in the library.
-2. You sort the book table by clicking any of the table column heading
+2. You can sort the book table by clicking any of the table column heading
 3. You can register with new email-id or via github.
 4. You can login if you are registed before.
 5. With registered account you can add a new book.
