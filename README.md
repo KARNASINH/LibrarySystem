@@ -1,4 +1,4 @@
-# Knowledge City LibrarySystem
+# Knowledge-City LibrarySystem
 This app can be used to manage books for the Knowledge-City Library.
 
 ## Project features
